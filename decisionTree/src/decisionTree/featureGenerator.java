@@ -27,9 +27,24 @@ public class featureGenerator {
 			board = createBoard(board, line);
 			printBoard(board);
 			System.out.println("\n");
+			deconstructBoard("./output.txt", board);
+			System.out.println("\n");
 		}
 		
 		br.close();
+	}
+	
+	// Turns a board back into a CSV readable file
+	public void deconstructBoard(String fileName, int[][] board) throws FileNotFoundException, IOException {
+		outputFile = new File ("./" + fileName);
+		BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile));
+		
+		for (int i=0; i<7; i++){
+			for (int j=0; j<6; j++){
+				System.out.print(board[j][i] + ",");
+			}
+		}
+		bw.close();
 	}
 	
 	public int[][] createBoard(int[][] board, String line)
@@ -63,6 +78,7 @@ public class featureGenerator {
 		featureGenerator fg = new featureGenerator();
 		
 		fg.generate(fileName);
+		
 	}
 	
 }
