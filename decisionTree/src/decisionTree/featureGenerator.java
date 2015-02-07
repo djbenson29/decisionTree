@@ -1,6 +1,8 @@
 package decisionTree;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.List;
 
 
 
@@ -20,11 +22,39 @@ public class featureGenerator {
 		BufferedReader br = new BufferedReader(new FileReader(inputFile));
 		
 		String line = null;
+		int[][] board = new int[100][100];
 		while ((line = br.readLine()) != null) {
-			System.out.println(line);
+			board = createBoard(board, line);
+			printBoard(board);
+			System.out.println("\n");
 		}
 		
 		br.close();
+	}
+	
+	public int[][] createBoard(int[][] board, String line)
+	{
+		List<String> ls = Arrays.asList(line.split(","));
+		int counter = 0;
+		for (int i=0;i<7;i++)
+		{
+			for (int j=0;j<6;j++)
+			{
+				board[j][i] = Integer.parseInt(ls.get(counter));
+				counter++;
+			}
+		}
+		return board;
+	}
+	
+	public void printBoard(int[][] board)
+	{
+		for (int i=5; i>=0; i--) {
+			for (int j=0; j<7; j++) {
+				System.out.print(board[i][j] + " ");
+			}
+			System.out.print("\n");
+		}
 	}
 	
 	public static void main(String [] arg) throws IOException
