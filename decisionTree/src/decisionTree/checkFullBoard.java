@@ -9,17 +9,24 @@ public class checkFullBoard {
 	
 	public int foursBoardFull(int[][] board, int player)
 	{
+		int[][] tempBoard = new int[100][100];
+		for (int i=0; i<7;i++)
+		{
+			for (int j=0;j<6;j++){
+				tempBoard[i][j] = board[i][j];
+			}
+		}
 		for (int i=0;i<7;i++)
 		{
 			for (int j=0;j<6;j++)
 			{
-				if (board[i][j] == 0)
+				if (tempBoard[i][j] == 0)
 				{
-					board[i][j] = player;
+					tempBoard[i][j] = player;
 				}
 			}
 		}
-		int total = checkForFour(board, 7, 6, player);
+		int total = checkForFour(tempBoard, 7, 6, player);
 		return total;
 	}
 	

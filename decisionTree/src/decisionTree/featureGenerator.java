@@ -40,7 +40,7 @@ public class featureGenerator {
 			System.out.println(feature1 + " ");
 			System.out.println(feature2 + " ");
 			System.out.println(feature3 + " ");
-			//System.out.println(feature4 + " ");
+			System.out.println(feature4 + " ");
 			deconstructBoard("output.txt", board, feature1, feature2, feature3, feature4, winner);
 			System.out.println("\n");
 			i++;
