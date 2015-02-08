@@ -10,8 +10,8 @@ public class checkForThree {
 	public int totalThree(int[][] board, int width, int height, int player){
 		int horizontal = checkForThreeHorizontal(board, width, height, player);
 		int vertical = checkForThreeVertical(board, width, height, player);
-		int dRight = nDiagonalRight(3, board, player, width, height, 4);
-		int dLeft = nDiagonalLeft(3, board, player, height, width, 4);
+		int dRight = nDiagonalRight(3, board, player, width, height, 3);
+		int dLeft = nDiagonalLeft(3, board, player, height, width, 3);
 		return horizontal + vertical + dRight + dLeft;
 	}
 
@@ -19,19 +19,11 @@ public class checkForThree {
 	public int checkForThreeVertical(int[][] board, int width, int height, int player){
 		int num = 0;
 		int max;
-		int spaces = 0;
 		for(int i=0;i<width;i++){
 			max = 0;
 			for(int j=0;j<height;j++){
-				if(board[i][j] == player && spaces == 1){
+				if(board[j][i] == player){
 					max++;
-					spaces = 0;
-				}
-				else if(board[i][j] == player){
-					max++;
-				}
-				else if(board[i][j] == 9 && spaces == 0){
-					spaces++;
 				}
 				else{
 					max = 0;
