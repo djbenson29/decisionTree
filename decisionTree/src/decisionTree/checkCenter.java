@@ -14,7 +14,7 @@ public class checkCenter {
 		{
 			for (int j=0; j<height; j++)
 			{
-				if (board[i][j] == player)
+				if (board[j][i] == player)
 				{
 					total++;
 				}
