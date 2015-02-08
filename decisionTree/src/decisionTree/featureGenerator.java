@@ -41,7 +41,12 @@ public class featureGenerator {
 			System.out.println(feature2 + " ");
 			System.out.println(feature3 + " ");
 			System.out.println(feature4 + " ");
-			deconstructBoard("output.txt", board, feature1, feature2, feature3, feature4, winner);
+			if (i==0){
+				deconstructBoard("output.txt", board, feature1, feature2, feature3, feature4, winner, true);
+			}
+			else{
+				deconstructBoard("output.txt", board, feature1, feature2, feature3, feature4, winner, false);
+			}
 			System.out.println("\n");
 			i++;
 		}
@@ -50,10 +55,15 @@ public class featureGenerator {
 	}
 	
 	// Turns a board back into a CSV readable file
-	public void deconstructBoard(String fileName, int[][] board, int feature1, int feature2, int feature3, int feature4, String winner) throws FileNotFoundException, IOException {
+	public void deconstructBoard(String fileName, int[][] board, int feature1, int feature2, int feature3, int feature4, String winner, boolean first) throws FileNotFoundException, IOException {
 		outputFile = new File ("./" + fileName);
-		if (!outputFile.exists()){
-			outputFile.createNewFile();
+		if (first){
+			if (outputFile.exists()){
+				outputFile.delete();
+			}
+			if (!outputFile.exists()){
+				outputFile.createNewFile();
+			}
 		}
 		BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile.getAbsoluteFile(), true));
 		for (int i=0; i<7; i++){
