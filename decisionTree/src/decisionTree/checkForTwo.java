@@ -2,6 +2,11 @@ package decisionTree;
 
 public class checkForTwo {
 
+	public checkForTwo()
+	{
+		
+	}
+	
 	public int totalTwo(int[][] board, int width, int height, int player){
 		int horizontal = checkForTwoHorizontal(board, width, height, player);
 		int vertical = checkForTwoVertical(board, width, height, player);

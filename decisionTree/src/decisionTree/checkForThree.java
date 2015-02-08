@@ -2,6 +2,10 @@ package decisionTree;
 
 public class checkForThree {
 
+	public checkForThree()
+	{
+		
+	}
 	// This function checks for three in a row of all varieties
 	public int totalThree(int[][] board, int width, int height, int player){
 		int horizontal = checkForThreeHorizontal(board, width, height, player);

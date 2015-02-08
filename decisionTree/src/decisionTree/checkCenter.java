@@ -2,6 +2,11 @@ package decisionTree;
 
 public class checkCenter {
 
+	public checkCenter()
+	{
+		
+	}
+	
 	public int totalCenter(int[][] board, int player, int width, int height)
 	{
 		int total = 0;
