@@ -10,8 +10,12 @@ public class checkForTwo {
 	public int totalTwo(int[][] board, int width, int height, int player){
 		int horizontal = checkForTwoHorizontal(board, width, height, player);
 		int vertical = checkForTwoVertical(board, width, height, player);
-		int dRight = nDiagonalRight(2, board, player, width, height, 4);
-		int dLeft = nDiagonalLeft(2, board, player, height, width, 4);
+		int dRight = nDiagonalRight(2, board, player, width, height, 2);
+		int dLeft = nDiagonalLeft(2, board, player, width, height, 2);
+		//System.out.println(horizontal);
+		//System.out.println(vertical);
+		//System.out.println(dRight);
+		//System.out.println(dLeft);
 		return horizontal + vertical + dRight + dLeft;
 	}
 
@@ -41,16 +45,17 @@ public class checkForTwo {
 	public int checkForTwoVertical(int[][] board, int width, int height, int player){
 		int num = 0;
 		int max;
-		for(int i=0;i<width;i++){
+		for (int i=0;i<width;i++){
 			max = 0;
 			for (int j=0;j<height;j++){
-				if(board[i][j] == player){
+				if (board[j][i] == player){
 					max++;
 				}
 				else{
 					max = 0;
 				}
-				if (max == 2){
+				if (max == 2)
+				{
 					num++;
 					max = 0;
 				}
@@ -93,7 +98,7 @@ public class checkForTwo {
 	}
 
 	// This function checks for n pieces in a row diagonally of the same player
-	int nDiagonalLeft(int n, int[][] board, int playerNumber, int height, int width, int connectN){
+	int nDiagonalLeft(int n, int[][] board, int playerNumber, int width, int height, int connectN){
 		//int max = 0;
 		int num = 0;
 		//int opponentNumber = (playerNumber==1) ? 2 : 1;
