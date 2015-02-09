@@ -45,10 +45,10 @@ public class featureGenerator {
 			System.out.println(feature4 + " ");
 			System.out.println(feature5 + " ");
 			if (i==0){
-				deconstructBoard("output.txt", board, feature1, feature2, feature3, feature4, feature5, winner, true);
+				deconstructBoard("output.csv", board, feature1, feature2, feature3, feature4, feature5, winner, true);
 			}
 			else{
-				deconstructBoard("output.txt", board, feature1, feature2, feature3, feature4, feature5, winner, false);
+				deconstructBoard("output.csv", board, feature1, feature2, feature3, feature4, feature5, winner, false);
 			}
 			System.out.println("\n");
 			i++;
@@ -70,6 +70,8 @@ public class featureGenerator {
 			}
 		}
 		BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile.getAbsoluteFile(), true));
+		bw.write("s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22,s23,s24,s25,s26,s27,s28,"
+				+ "s29,s30,s31,s32,s33,s34,s35,s36,s37,s38,s39,s40,s41,s42,f1,f2,f3,f4,f5,winner\n");
 		for (int i=0; i<7; i++){
 			for (int j=0; j<6; j++){
 				bw.write(board[j][i] + ",");
