@@ -33,19 +33,22 @@ public class featureGenerator {
 			checkForThree cThree = new checkForThree();
 			checkCenter cCenter = new checkCenter();
 			checkFullBoard cFull = new checkFullBoard();
+			checkOpposingTwos coTwo = new checkOpposingTwos();
 			int feature1 = cTwo.totalTwo(board, 7, 6, 1);
 			int feature2 = cThree.totalThree(board, 7, 6, 1);
 			int feature3 = cCenter.totalCenter(board, 1, 7, 6);
 			int feature4 = cFull.foursBoardFull(board, 1);
+			int feature5 = coTwo.totalTwo(board, 7, 6, 1);
 			System.out.println(feature1 + " ");
 			System.out.println(feature2 + " ");
 			System.out.println(feature3 + " ");
 			System.out.println(feature4 + " ");
+			System.out.println(feature5 + " ");
 			if (i==0){
-				deconstructBoard("output.txt", board, feature1, feature2, feature3, feature4, winner, true);
+				deconstructBoard("output.txt", board, feature1, feature2, feature3, feature4, feature5, winner, true);
 			}
 			else{
-				deconstructBoard("output.txt", board, feature1, feature2, feature3, feature4, winner, false);
+				deconstructBoard("output.txt", board, feature1, feature2, feature3, feature4, feature5, winner, false);
 			}
 			System.out.println("\n");
 			i++;
@@ -55,7 +58,8 @@ public class featureGenerator {
 	}
 	
 	// Turns a board back into a CSV readable file
-	public void deconstructBoard(String fileName, int[][] board, int feature1, int feature2, int feature3, int feature4, String winner, boolean first) throws FileNotFoundException, IOException {
+	public void deconstructBoard(String fileName, int[][] board, int feature1, int feature2, int feature3, int feature4, 
+			int feature5, String winner, boolean first) throws FileNotFoundException, IOException {
 		outputFile = new File ("./" + fileName);
 		if (first){
 			if (outputFile.exists()){
@@ -71,7 +75,7 @@ public class featureGenerator {
 				bw.write(board[j][i] + ",");
 			}
 		}
-		bw.write(feature1 + "," + feature2 + "," + feature3 + "," + feature4 + "," + winner);
+		bw.write(feature1 + "," + feature2 + "," + feature3 + "," + feature4 + "," + feature5 + "," + winner);
 		bw.write("\n");
 		bw.close();
 	}
