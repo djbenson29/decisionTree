@@ -118,8 +118,8 @@ public class checkFullBoard {
 			int max = 0;
 			int num = 0;
 			int opponentNumber = (playerNumber==1) ? 2 : 1;
-			for(int i=width; i < (width-connectN); i--){
-				for (int j=0; j<(height-connectN); j++){
+			for (int i=width; i < (width-connectN); i--) {
+				for (int j=0; j<(height-connectN); j++) {
 					if (n == 2) {
 						if(board[i][j] == playerNumber &&
 								board[i-1][j+1] == playerNumber){
