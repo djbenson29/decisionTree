@@ -1,3 +1,13 @@
+/*
+ * Daniel Benson djbenson@wpi.edu
+ * Rafael Angelo rlangelo@wpi.edu
+ * CS 4341 Project 3 Decision Trees
+ * Professor Heffernan
+ * 
+ * This file contains our feature generator class which takes in a file 
+ * and produces a CSV file that can be used to analyze our results in WEKA.
+ */
+
 package decisionTree;
 
 import java.io.*;
@@ -14,9 +24,10 @@ public class featureGenerator {
 	
 	public featureGenerator()
 	{
-
+		// Empty constructor to instantiate the class
 	}
 	
+	// This function reads the file and creates the ouput file
 	public void generate(String fileName) throws FileNotFoundException, IOException
 	{
 		inputFile = new File("./" + fileName);
@@ -29,7 +40,7 @@ public class featureGenerator {
 		int[][] board = new int[100][100];
 		while ((line = br.readLine()) != null) {
 			board = createBoard(board, line);
-			System.out.println(i);
+			//System.out.println(i);
 			printBoard(board);
 			checkForTwo cTwo = new checkForTwo();
 			checkForThree cThree = new checkForThree();
@@ -41,18 +52,18 @@ public class featureGenerator {
 			featureList[2] = cCenter.totalCenter(board, 1, 7, 6);
 			featureList[3] = cFull.foursBoardFull(board, 1);
 			featureList[4] = coTwo.totalTwo(board, 7, 6, 1);
-			System.out.println(featureList[0] + " ");
-			System.out.println(featureList[1] + " ");
-			System.out.println(featureList[2] + " ");
-			System.out.println(featureList[3] + " ");
-			System.out.println(featureList[4] + " ");
+//			System.out.println(featureList[0] + " ");
+//			System.out.println(featureList[1] + " ");
+//			System.out.println(featureList[2] + " ");
+//			System.out.println(featureList[3] + " ");
+//			System.out.println(featureList[4] + " ");
 			
 			for (int x=0; x<5; x++) {
 				for (int y=0; y<5; y++) {
 					int q = featureList[x];
 					int p = featureList[y];
 					featureList[counter] = q*p;
-					System.out.println("featureList[counter] = " + featureList[counter] + ". FeatureList[x] = "+ featureList[x] + " y = " + featureList[y]);
+					//System.out.println("featureList[counter] = " + featureList[counter] + ". FeatureList[x] = "+ featureList[x] + " y = " + featureList[y]);
 					counter++;
 				}
 			}
@@ -83,27 +94,33 @@ public class featureGenerator {
 				outputFile.createNewFile();
 			}
 		}
+		
 		BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile.getAbsoluteFile(), true));
+		// Write the column labels
 		if (first){
 			bw.write("s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22,s23,s24,s25,s26,s27,s28,"
 					+ "s29,s30,s31,s32,s33,s34,s35,s36,s37,s38,s39,s40,s41,s42,f1,f2,f3,f4,f5,f1*f1,f1*f2,f1*f3,f1*f4,f1*f5,"
 					+ "f2*f1,f2*f2,f2*f3,f2*f4,f2*f5,f3*f1,f3*f2,f3*f3,f3*f4,f3*f5,f4*f1,f4*f2,f4*f3,f4*f4,f4*f5,"
 					+ "f5*f1,f5*f2,f5*f3,f5*f4,f5*f5,winner\n");
 		}
+		
+		// write the board values 
 		for (int i=0; i<7; i++){
 			for (int j=0; j<6; j++){
 				bw.write(board[j][i] + ",");
 			}
 		}
-		
+		// write the feature values
 		for (int i=0; i<29; i++){
 			bw.write(features[i] + ",");
 		}
+		
 		bw.write(winner);
 		bw.write("\n");
 		bw.close();
 	}
 	
+	// This function takes in a line of input and constructs a board to be analyzed
 	public int[][] createBoard(int[][] board, String line)
 	{
 		List<String> ls = Arrays.asList(line.split(","));
@@ -120,6 +137,7 @@ public class featureGenerator {
 		return board;
 	}
 	
+	// This function prints the board for debugging purposes
 	public void printBoard(int[][] board)
 	{
 		for (int i=5; i>=0; i--) {
@@ -130,6 +148,7 @@ public class featureGenerator {
 		}
 	}
 	
+	// Main Function
 	public static void main(String [] arg) throws IOException
 	{
 		String fileName = arg[0];
