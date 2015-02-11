@@ -1,3 +1,14 @@
+/*
+ * Daniel Benson djbenson@wpi.edu
+ * Rafael Angelo rlangelo@wpi.edu
+ * CS 4341 Project 3 Decision Trees
+ * Professor Heffernan
+ * 
+ * This file contains our checkForTwo class which checks the board state
+ * and checks to see if there are two pieces of the same player placed consecutively
+ * and returns this number as a feature
+ */
+
 package decisionTree;
 
 public class checkForTwo {

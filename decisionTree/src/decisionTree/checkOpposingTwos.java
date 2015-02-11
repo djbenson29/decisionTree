@@ -1,12 +1,25 @@
+/*
+ * Daniel Benson djbenson@wpi.edu
+ * Rafael Angelo rlangelo@wpi.edu
+ * CS 4341 Project 3 Decision Trees
+ * Professor Heffernan
+ * 
+ * This file contains our checkOpposingTwos class which takes in a board state and searches the board for the number of two
+ * consecutive pieces in a row that the opponent has. It then subtracts this number from the number of our two in a
+ * rows and returns this number. 
+ */
+
+
 package decisionTree;
 
 public class checkOpposingTwos {
 
 	public checkOpposingTwos()
 	{
-		
+		// empty constructor to instantiate this feature
 	}
 	
+	// 
 	public int totalTwo(int[][] board, int width, int height, int player){
 		int oppositePlayer = 0;
 		if (player==1){

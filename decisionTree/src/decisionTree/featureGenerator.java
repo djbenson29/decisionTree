@@ -41,7 +41,7 @@ public class featureGenerator {
 		while ((line = br.readLine()) != null) {
 			board = createBoard(board, line);
 			//System.out.println(i);
-			printBoard(board);
+			//printBoard(board);
 			checkForTwo cTwo = new checkForTwo();
 			checkForThree cThree = new checkForThree();
 			checkCenter cCenter = new checkCenter();
@@ -76,7 +76,7 @@ public class featureGenerator {
 			else{
 				deconstructBoard("output.csv", board, featureList, winner, false);
 			}
-			System.out.println("\n");
+			//System.out.println("\n");
 			i++;
 		}
 		
@@ -144,6 +144,7 @@ public class featureGenerator {
 			for (int j=0; j<7; j++) {
 				System.out.print(board[i][j] + " ");
 			}
+			
 			System.out.print("\n");
 		}
 	}
@@ -153,9 +154,7 @@ public class featureGenerator {
 	{
 		String fileName = arg[0];
 		featureGenerator fg = new featureGenerator();
-		
 		fg.generate(fileName);
-		
 	}
 	
 }

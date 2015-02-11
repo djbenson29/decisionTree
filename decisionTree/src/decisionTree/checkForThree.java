@@ -1,10 +1,22 @@
+/*
+ * Daniel Benson djbenson@wpi.edu
+ * Rafael Angelo rlangelo@wpi.edu
+ * CS 4341 Project 3 Decision Trees
+ * Professor Heffernan
+ * 
+ * This file contains our checkForThree class which checks the board state
+ * and checks to see if there are three pieces of the same player placed consecutively
+ * and returns this number as a feature
+ */
+
+
 package decisionTree;
 
 public class checkForThree {
 
 	public checkForThree()
 	{
-		
+		// Empty constructor to instantiate this feature
 	}
 	// This function checks for three in a row of all varieties
 	public int totalThree(int[][] board, int width, int height, int player){

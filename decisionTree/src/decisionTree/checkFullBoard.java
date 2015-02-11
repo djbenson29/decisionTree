@@ -1,12 +1,24 @@
+/*
+ * Daniel Benson djbenson@wpi.edu
+ * Rafael Angelo rlangelo@wpi.edu
+ * CS 4341 Project 3 Decision Trees
+ * Professor Heffernan
+ * 
+ * This file contains our checkFullBoard class which takes in a board state and then fills
+ * all the currently empty spaces on the board with our players pieces. It then checks the board for the number of 
+ * connect 4's. It then returns this number as a feature
+ */
+
 package decisionTree;
 
 public class checkFullBoard {
 
 	public checkFullBoard()
 	{
-		
+		// Empty construtor to instantiate this feature
 	}
 	
+	// Fills the board with our pieces
 	public int foursBoardFull(int[][] board, int player)
 	{
 		int[][] tempBoard = new int[100][100];
@@ -30,6 +42,7 @@ public class checkFullBoard {
 		return total;
 	}
 	
+	// checks horizaontally, vertically and diagonally for 4 in a row
 	public int checkForFour(int[][] board, int width, int height, int player){
 		int horizontal = checkForFourHorizontal(board, width, height, player);
 		int vertical = checkForFourVertical(board, width, height, player);
