@@ -99,9 +99,9 @@ public class featureGenerator {
 		// Write the column labels
 		if (first){
 			bw.write("s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22,s23,s24,s25,s26,s27,s28,"
-					+ "s29,s30,s31,s32,s33,s34,s35,s36,s37,s38,s39,s40,s41,s42,f1,f2,f3,f4,f5,f1*f1,f1*f2,f1*f3,f1*f4,f1*f5,"
-					+ "f2*f1,f2*f2,f2*f3,f2*f4,f2*f5,f3*f1,f3*f2,f3*f3,f3*f4,f3*f5,f4*f1,f4*f2,f4*f3,f4*f4,f4*f5,"
-					+ "f5*f1,f5*f2,f5*f3,f5*f4,f5*f5,winner\n");
+					+ "s29,s30,s31,s32,s33,s34,s35,s36,s37,s38,s39,s40,s41,s42,f1,f2,f3,f4,f5,f1f1,f1f2,f1f3,f1f4,f1f5,"
+					+ "f2f1,f2f2,f2f3,f2f4,f2f5,f3f1,f3f2,f3f3,f3f4,f3f5,f4f1,f4f2,f4f3,f4f4,f4f5,"
+					+ "f5f1,f5f2,f5f3,f5f4,f5f5,winner\n");
 		}
 		
 		// write the board values 
@@ -111,7 +111,7 @@ public class featureGenerator {
 			}
 		}
 		// write the feature values
-		for (int i=0; i<29; i++){
+		for (int i=0; i<30; i++){
 			bw.write(features[i] + ",");
 		}
 		
